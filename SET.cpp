@@ -132,106 +132,57 @@ class SET
 };
 int main()
 {
-   int a,b,c,m,x;
-   SET s1,s2;
-   m=0;x=0;
+   int a,b,c,m,i;
+   vector<SET> s(100001);
+   ll arr[100001];
+   m=0;
    while(true){
    cin>>a>>b>>c;
-   if(b==1)
-   {
+   i=b;
      if(a==1)
      {
-        cout<<s1.Insert(c)<<endl;
-        m++;
+        cout<<s[i].Insert(c)<<endl;
+        arr[i]++;
      }
      else if(a==2)
      {
-        if(m!=0) cout<<s1.Delete(c)<<endl;
+        if(arr[i]!=0) cout<<s[i].Delete(c)<<endl;
         else cout<<-1<<endl;
      }
      else if(a==3)
      {
-        if(m!=0) cout<<s1.Belongs_to(c)<<endl;
+        if(arr[i]!=0) cout<<s[i].Belongs_to(c)<<endl;
         else cout<<-1<<endl;
      }
      else if(a==4)
      {
-        cout<<s1.Union(s2)<<endl;
-        m++;
+        cout<<s[i].Union(s[c])<<endl;
+        arr[i]++;arr[c]++;
      }
      else if(a==5)
      {
-        cout<<s1.Intersection(s2)<<endl;
-        m++;
+        cout<<s[i].Intersection(s[c])<<endl;
+        arr[i]++;arr[c]++;
      }
      else if(a==6)
      {
-        cout<<s1.Size()<<endl;
-        m++;
+        cout<<s[i].Size()<<endl;
+        arr[i]++;
      }
      else if(a==7)
      {
-        cout<<s1.Difference(s2)<<endl;
-        m++;
+        cout<<s[i].Difference(s[c])<<endl;
+        arr[i]++;arr[c]++;
      }
      else if(a==8)
      {
-        cout<<s1.Symmetric_Difference(s2)<<endl;
-        m++;
+        cout<<s[i].Symmetric_Difference(s[c])<<endl;
+        arr[i]++;arr[c]++;
      }
      else if(a==9)
      {
-        if(m!=0) s1.Print();
+        if(arr[i]!=0) s[i].Print();
         else cout<<endl;
      }
    }
-   else if(b==2)
-   {
-     if(a==1)
-     {
-        cout<<s2.Insert(c)<<endl;
-        x++;
-     }
-     else if(a==2)
-     {
-       if(x!=0) cout<<s2.Delete(c)<<endl;
-       else cout<<-1<<endl;
-     }
-     else if(a==3)
-     {
-        if(x!=0) cout<<s2.Belongs_to(c)<<endl;
-        else cout<<-1<<endl;
-     }
-     else if(a==4)
-     {
-        cout<<s2.Union(s1)<<endl;
-        x++;
-     }
-     else if(a==5)
-     {
-        cout<<s2.Intersection(s1)<<endl;
-        x++;
-     }
-     else if(a==6)
-     {
-        cout<<s2.Size()<<endl;
-        x++;
-     }
-     else if(a==7)
-     {
-        cout<<s2.Difference(s1)<<endl;
-        x++;
-     }
-     else if(a==8)
-     {
-        cout<<s2.Symmetric_Difference(s1)<<endl;
-        x++;
-     }
-     else if(a==9)
-     {
-        if(x!=0) s2.Print();
-        else cout<<endl;
-     }
-   }
-  }
 }
